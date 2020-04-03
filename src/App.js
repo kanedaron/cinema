@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,14 +7,31 @@ import './App.css';
 // 3 a movie poster component
 // 4 a movie details component(which activates and filled based on "movie opened" state)
 
+class Cinema extends Component {
+  constructor(props) {
+    super(props);
+    fetch("https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json")
+    .then(res => res.json())
+    .then(result => {
+      this.setState({
+        ...result,
+        isLoaded: true});
+      console.log(this.state)
+    });
+  }
+    
+    render () {
+      return (
+        <div class="cinema">testcinema</div>
+      )
+    }
+  }
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Cinema />
         <a
           className="App-link"
           href="https://reactjs.org"
