@@ -1,0 +1,101 @@
+a:link {
+    text-decoration: none;
+  }
+  
+a:visited {
+    text-decoration: none;
+  }
+  
+a:hover {
+    text-decoration: none;
+  }
+  
+a:active {
+    text-decoration: none;
+  }
+
+img {
+    height: 300px;
+}
+
+.canvas span {
+    font-size: 25px;
+    display: block;
+    text-align: center;
+    padding-top: 200px;
+    transition: transform 1s, background-color 1s;
+}
+
+.canvas {
+    opacity:0;
+    box-sizing: content-box;
+    /* position: absolute; */
+    height:300px;
+    width: 200px;
+    left: 30px;
+    /* background-color: black; */
+    font-size: 30px;
+    font-family: "Helvetica Neue";
+    font-weight: 900;
+    /* line height to manage this specific font to delete if font not used */
+    /* line-height: 40px; */
+    color: white;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+
+/* The following "casselescouilles" is fix to the problem of having chrome transitioning to my default opacity:0 from their default opacity:1
+which i can't get to change!!!!!! (delete this section and reload to see what i mean)*/
+
+    animation-duration: .25s;
+    animation-fill-mode: backwards;
+    animation-name: casselescouilles;
+}
+
+@keyframes casselescouilles {
+    from {
+        opacity: 0;
+    }
+
+    to {
+    opacity: 0;
+    }
+  }
+
+/* End of "casselescouilles" fix */
+
+.canvas:hover {
+    opacity: 1;
+    /* height:375px;
+    width:250px; */
+background-color:rgba(0, 0, 0, 0.383);
+}
+
+.canvas:active span {
+    color: rgba(243, 243, 243, 0);
+    transform: scale(15);
+    background-color:rgb(255, 255, 255);
+}
+
+li {
+    background-image: url("../img/film.jpg");
+    background-position: center;
+    background-size: cover;
+    transition: all 1s;
+    margin: 30px;
+}
+
+li:hover {
+
+transform: rotate(15deg) scale(1.5);
+/* height:375px;
+width:250px; */
+}
+
+ul {
+    margin: 50px;
+    display: inline-grid;
+    grid-template-columns: 260px 260px 260px 260px 260px 260px;
+    grid-template-rows: 360px 360px 360px;
+    list-style-type:none;
+    transition:all 1s;
+}
