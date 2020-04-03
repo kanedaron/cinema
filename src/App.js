@@ -15,7 +15,9 @@ class Cinema extends Component {
     .then(result => {
       this.setState({
         ...result,
-        isLoaded: true});
+        isLoaded: true,
+        currentFilter: "",
+        movieOpened: ""});
       console.log(this.state)
     });
   }
