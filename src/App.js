@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import PropTypes from 'prop-types';
 import './App.css';
 
@@ -34,7 +33,7 @@ const MovieDetails = (props) => {
               <div class="mdtitle">{props.name}</div>
               <div class="mddate">{props.date}</div>
               <div class="mdtype">{props.type}</div>
-              <div class="mdtype">{props.type}</div>
+              <div class="mddesc">{props.desc}</div>
   </div>
 }
 
@@ -97,7 +96,7 @@ class Cinema extends Component {
                         <input></input>
                     </div>
                     {/* movie list */}
-                    <ul>
+                    <ul class="container">
                       {this.state.entries.map((movie,index) => <Card key={index} name={movie.title} image={movie.images["Poster Art"].url} />)
                       
                       }
@@ -111,17 +110,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Cinema />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Cinema />
     </div>
   );
 }
