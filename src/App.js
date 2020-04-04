@@ -9,15 +9,8 @@ import './App.css';
 // 3 a movie poster component
 // 4 a movie details component(which activates and filled based on "movie opened" state)
 
-// const Card = (props) => {
-//   return <div><img src={`${props.image}`} alt="the poster of the movie"></img>{props.name}</div>
-// }
-
-class Card extends Component {
-
-  render() {
-      return (<div><img src={`${this.props.image}`} alt="the poster of the movie"></img>{this.props.name}</div>)
-  }
+const Card = (props) => {
+  return <div><img src={`${props.image}`} alt="the poster of the movie"></img>{props.name}</div>
 }
 
 Card.propTypes = {
@@ -36,6 +29,16 @@ const MovieDetails = (props) => {
               <div class="mddesc">{props.desc}</div>
   </div>
 }
+
+MovieDetails.propTypes = {
+  // You can declare that a prop is a specific JS type. By default, these
+  // are all optional.
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired
+};
 
 class Cinema extends Component {
   constructor(props) {
@@ -96,7 +99,7 @@ class Cinema extends Component {
                         <input></input>
                     </div>
                     {/* movie list */}
-                    <ul class="container">
+                    <ul className="container">
                       {this.state.entries.map((movie,index) => <Card key={index} name={movie.title} image={movie.images["Poster Art"].url} />)
                       
                       }

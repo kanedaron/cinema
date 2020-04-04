@@ -77,7 +77,7 @@ background-color:rgba(0, 0, 0, 0.383);
 }
 
 li {
-    background-image: url("../img/film.jpg");
+    background-image: url("film.jpg");
     background-position: center;
     background-size: cover;
     transition: all 1s;
@@ -93,9 +93,28 @@ width:250px; */
 
 ul {
     margin: 50px;
+    margin-top: 120px;
     display: inline-grid;
     grid-template-columns: 260px 260px 260px 260px 260px 260px;
     grid-template-rows: 360px 360px 360px;
     list-style-type:none;
     transition:all 1s;
+}
+
+.topbar {
+    padding: 40px;
+    position: fixed;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 10px;
+}
+
+button {
+    font-size: 25px;
+}
+
+input {
+    font-size: 25px;
 }
