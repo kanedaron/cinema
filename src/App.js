@@ -10,7 +10,11 @@ import './App.css';
 // 4 a movie details component(which activates and filled based on "movie opened" state)
 
 const Card = (props) => {
-  return <div><img src={`${props.image}`} alt="the poster of the movie"></img>{props.name}</div>
+  return <li style={{backgroundImage: `url(${props.image})`}}>
+                        <div class="canvas">
+                                    <span>{props.name}</span>
+                        </div>
+        </li>
 }
 
 Card.propTypes = {
