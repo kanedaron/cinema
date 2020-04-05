@@ -108,6 +108,12 @@ class Cinema extends Component {
     this.setState({ movieOpened: -1 });
   };
 
+  //Search Engine Interface
+
+  search = (event) => {
+    this.setState({searchInput: event.target.value})
+  }
+
   // Filter and Sort toggles
   resettoggles = () => {
     this.setState({
@@ -279,7 +285,7 @@ if (this.state.searchInput !== "") {
             )}
           </div>
           <div className="topbar right">
-            <input placeholder="Search for a name......"></input>
+            <input onChange={this.search} placeholder="Search for a name......"></input>
           </div>
           {/* MovieDetails */}
           {this.state.movieOpened > -1 && (
