@@ -148,8 +148,10 @@ input {
 }
 
 .moviedetails {
+    margin: auto;
     height: 75%;
     width: 75%;
+    background-color: white;
 }
 
 .exmoviedetails {

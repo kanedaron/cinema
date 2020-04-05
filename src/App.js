@@ -88,7 +88,10 @@ class Cinema extends Component {
   }
 
  SetMovieDetails = (index) => {
-        this.setState({movieOpened:index})
+  setTimeout(() => {
+    this.setState({movieOpened:index});
+}, 2000);
+        
   }
 
  UnSetMovieDetails = () => {
