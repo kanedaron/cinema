@@ -124,10 +124,16 @@ ul {
 }
 
 .topbar {
+    display: grid;
+    grid-template-areas: 
+    "year f2010 type . movie sort . sname"
+    "year f2000 type . series sort . stype"
+    "year f1990 . . . sort . syear";
+    grid-template-rows: 35px 35px 35px;
+    grid-template-columns: auto auto auto auto auto;
     z-index: 20;
     padding: 40px;
     position: fixed;
-    pointer-events: all;
     top: 0;
     margin-left: auto;
     margin-right: auto;
@@ -135,13 +141,72 @@ ul {
     border-radius: 10px;
 }
 
+.right {
+    height: 123px;
+    display: block;
+    margin-left: 500px;
+}
+
+.topbar p {
+    font-size: 30px;
+    transform: rotate(-90deg);
+}
+
+.year {
+    grid-area: year;
+}
+
+.type {
+    grid-area: type;
+    justify-self: start;
+    align-self: start;
+}
+
+.sort {
+    grid-area: sort;
+}
+
+.f2010 {
+    grid-area: f2010;
+}
+
+.f2000 {
+    grid-area: f2000;
+}
+
+.f1990 {
+    grid-area: f1990;
+}
+
+.movie {
+    grid-area: movie;
+}
+
+.series {
+    grid-area: series;
+}
+
+.sname {
+    grid-area: sname;
+}
+
+.stype {
+    grid-area: stype;
+}
+
+.syear {
+    grid-area: syear;
+}
+
 button {
-    font-size: 25px;
-    padding: 20px;
+    font-size: 15px;
+    /* padding: 20px; */
     border-radius: 5px;
 }
 
 input {
+    margin-top: 10%;
+    margin-left: 60px;
     font-size: 25px;
 }
 

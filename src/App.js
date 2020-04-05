@@ -70,7 +70,7 @@ class Cinema extends Component {
           sortyear:false,
           sortname:false,
           sorttype:false,
-          filteryear:"",
+          filteryear:"1990",
           filtertype:""
         },
         searchInput: "",
@@ -99,37 +99,77 @@ class Cinema extends Component {
   }
     
     render () {
-      const film = this.state.entries[this.state.movieOpened]
+
+
 
       if (this.state.error) {
         return <div>Erreur : {this.state.error.message}</div>;
       } else if (this.state.isLoaded===false) {
         return <div>Chargement…</div>;
       } else {
+
+      // set up a copy of film entries which will a) be sorted and filtered
+      // b) always keep an index to give a way to get back to original entry for moviedetails
+      let tablerendue = []
+      for (let item in this.state.entries) {
+        this.tablerendue=tablerendue.push({...this.state.entries[item],index:item})
+      }
+
+      // filter and sort the entries array
+      if (this.state.currentFilter.filteryear==="2010") tablerendue=tablerendue.filter(film => film.releaseYear>2009)
+      if (this.state.currentFilter.filteryear==="2000") tablerendue=tablerendue.filter(film => film.releaseYear>1999 && film.releaseYear<2010)
+      if (this.state.currentFilter.filteryear==="1990") tablerendue=tablerendue.filter(film => film.releaseYear>1989 && film.releaseYear<2000)
+
+      if (this.state.currentFilter.filtertype==="series") tablerendue=tablerendue.filter(film => film.programType==="series")
+      if (this.state.currentFilter.filtertype==="movie") tablerendue=tablerendue.filter(film => film.programType==="movie")
+
+      if (this.state.currentFilter.sortname) tablerendue=tablerendue.sort((a,b) => {
+        if (a.title > b.title) return 1
+        if (a.title < b.title) return -1
+        return 0
+      })
+      if (this.state.currentFilter.sorttype) tablerendue=tablerendue.sort((a,b) => {
+        if (a.programType > b.programType) return 1
+        if (a.programType < b.programType) return -1
+        return 0
+      })
+      if (this.state.currentFilter.sortyear) tablerendue=tablerendue.sort((a,b) => {
+        if (a.releaseYear > b.releaseYear) return 1
+        if (a.releaseYear < b.releaseYear) return -1
+        return 0
+      })
+
+
+      const film = this.state.entries[this.state.movieOpened]
+
         return (
                 <div className="cinema">
                     {/* Top bar */}
                     <div className="topbar">
-        {this.state.currentFilter.filteryear==="2010" ? <button className="activebutton">2010 onwards</button> : <button >2010 onwards</button> }
-        {this.state.currentFilter.filteryear==="2000" ? <button className="activebutton">2000-2010</button> : <button >2000-2010</button> }
-        {this.state.currentFilter.filteryear==="1990" ? <button className="activebutton">1990-2000</button> : <button >1990-2000</button> }
+                      <p className="year">Year</p>
+        {this.state.currentFilter.filteryear==="2010" ? <button className="f2010 activebutton">2010 onwards</button> : <button className="f2010">2010 onwards</button> }
+        {this.state.currentFilter.filteryear==="2000" ? <button className="f2000 activebutton">2000-2010</button> : <button className="f2000" >2000-2010</button> }
+        {this.state.currentFilter.filteryear==="1990" ? <button className="f1990 activebutton">1990-2000</button> : <button className="f1990" >1990-2000</button> }
 
-        {this.state.currentFilter.filtertype==="series" ? <button className="activebutton">Only Series</button> : <button >Only Series</button> }
-        {this.state.currentFilter.filtertype==="movie" ? <button className="activebutton">Only Movies</button> : <button >Only Movies</button> }
+                      <p className="type">Type</p>
+        {this.state.currentFilter.filtertype==="series" ? <button className="series activebutton">Series</button> : <button className="series" >Series</button> }
+        {this.state.currentFilter.filtertype==="movie" ? <button className="movie activebutton">Movie</button> : <button className="movie" >Movie</button> }
 
-                        {this.state.currentFilter.sortname ? <button className="activebutton">Sort by name</button> : <button >Sort by name</button> }
-                        {this.state.currentFilter.sortyear ? <button className="activebutton">Sort by year</button> : <button >Sort by year</button> }
-                        {this.state.currentFilter.sorttype ? <button className="activebutton">Sort by type</button> : <button >Sort by type</button> }
-                        <input placeholder="Search for a name......"></input>
+                      <p className="sort">Sort</p>
+                        {this.state.currentFilter.sortname ? <button className="sname activebutton">Name</button> : <button className="sname" >Name</button> }
+                        {this.state.currentFilter.sortyear ? <button className="syear activebutton">Year</button> : <button className="syear" >Year</button> }
+                        {this.state.currentFilter.sorttype ? <button className="stype activebutton">Type</button> : <button className="stype" >Type</button> }
+                        
                     </div>
+                    <div className="topbar right"><input placeholder="Search for a name......"></input></div>
                     {/* MovieDetails */}
                     {this.state.movieOpened > -1 && <MovieDetails name={film.title} type={film.programType} 
         image={film.images["Poster Art"].url} desc={film.description} date={film.releaseYear} 
         back={this.UnSetMovieDetails} />}
                     {/* movie list */}
                     <ul id="movielist">
-                      {this.state.entries.map((movie,index) => <Card key={index} name={movie.title} 
-                      image={movie.images["Poster Art"].url} index={index} click={this.SetMovieDetails} />)
+                      {tablerendue.map((movie) => <Card key={movie.index} name={movie.title} 
+                      image={movie.images["Poster Art"].url} index={movie.index} click={this.SetMovieDetails} />)
                       
                       }
                     </ul>
