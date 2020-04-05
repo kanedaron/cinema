@@ -127,7 +127,7 @@ class Cinema extends Component {
         image={film.images["Poster Art"].url} desc={film.description} date={film.releaseYear} 
         back={this.UnSetMovieDetails} />}
                     {/* movie list */}
-                    <ul className="container">
+                    <ul id="movielist">
                       {this.state.entries.map((movie,index) => <Card key={index} name={movie.title} 
                       image={movie.images["Poster Art"].url} index={index} click={this.SetMovieDetails} />)
                       
