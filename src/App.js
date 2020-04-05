@@ -10,8 +10,8 @@ import './App.css';
 // 4 a movie details component(which activates and filled based on "movie opened" state)
 
 const Card = (props) => {
-  return <li style={{backgroundImage: `url(${props.image})`}}>
-                        <div class="canvas">
+  return <li style={{backgroundImage: `url(${props.image})`}} onClick={() => props.click(props.index)}>
+                        <div className="canvas">
                                     <span>{props.name}</span>
                         </div>
         </li>
