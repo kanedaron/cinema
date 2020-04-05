@@ -80,6 +80,23 @@ background-color:rgba(0, 0, 0, 0.383);
     background-color:rgb(255, 255, 255);
 }
 
+.activate {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: moviedetails;
+}
+
+@keyframes moviedetails {
+    from {
+        
+    }
+
+    to {
+        transform: scale(15);
+        background-color:rgb(255, 255, 255);
+    }
+  }
+
 li {
     /* background-image: url("film.jpg"); */
     background-position: center;
@@ -117,8 +134,15 @@ ul {
 
 button {
     font-size: 25px;
+    padding: 20px;
+    border-radius: 5px;
 }
 
 input {
     font-size: 25px;
+}
+
+.activebutton {
+    background-color: rgb(85, 147, 206);
+    color: white;
 }
