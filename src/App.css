@@ -146,3 +146,17 @@ input {
     background-color: rgb(85, 147, 206);
     color: white;
 }
+
+.moviedetails {
+    height: 75%;
+    width: 75%;
+}
+
+.exmoviedetails {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}

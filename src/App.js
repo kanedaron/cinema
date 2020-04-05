@@ -25,14 +25,16 @@ Card.propTypes = {
 };
 
 const MovieDetails = (props) => {
-  return <div class="moviedetails">
-              <img src={props.image} alt="poster of the movie"></img>
-              <div class="mdtitle">{props.name}</div>
-              <div class="mddate">{props.date}</div>
-              <div class="mdtype">{props.type}</div>
-              <div class="mddesc">{props.desc}</div>
-              <div class="back" onClick={() => props.back()}>Go Back</div>
-  </div>
+  return  <div className="exmoviedetails">
+              <div class="moviedetails">
+                    <img src={props.image} alt="poster of the movie"></img>
+                    <div class="mdtitle">{props.name}</div>
+                    <div class="mddate">{props.date}</div>
+                    <div class="mdtype">{props.type}</div>
+                    <div class="mddesc">{props.desc}</div>
+                    <div class="back" onClick={() => props.back()}>Go Back</div>
+              </div>
+          </div>  
 }
 
 MovieDetails.propTypes = {
@@ -94,13 +96,7 @@ class Cinema extends Component {
   }
     
     render () {
-      if (this.state.movieOpened > -1) {
-
-        const film = this.state.entries[this.state.movieOpened]
-        return <MovieDetails name={film.title} type={film.programType} 
-        image={film.images["Poster Art"].url} desc={film.description} date={film.releaseYear} 
-        back={this.UnSetMovieDetails} />
-      }
+      const film = this.state.entries[this.state.movieOpened]
 
       if (this.state.error) {
         return <div>Erreur : {this.state.error.message}</div>;
@@ -123,6 +119,10 @@ class Cinema extends Component {
                         {this.state.currentFilter.sorttype ? <button className="activebutton">Sort by type</button> : <button >Sort by type</button> }
                         <input placeholder="Search for a name......"></input>
                     </div>
+                    {/* MovieDetails */}
+                    {this.state.movieOpened > -1 && <MovieDetails name={film.title} type={film.programType} 
+        image={film.images["Poster Art"].url} desc={film.description} date={film.releaseYear} 
+        back={this.UnSetMovieDetails} />}
                     {/* movie list */}
                     <ul className="container">
                       {this.state.entries.map((movie,index) => <Card key={index} name={movie.title} 
