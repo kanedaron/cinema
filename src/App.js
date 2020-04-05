@@ -31,6 +31,7 @@ const MovieDetails = (props) => {
               <div class="mddate">{props.date}</div>
               <div class="mdtype">{props.type}</div>
               <div class="mddesc">{props.desc}</div>
+              <div class="back" onClick={() => props.back()}>Go Back</div>
   </div>
 }
 
@@ -96,7 +97,9 @@ class Cinema extends Component {
       if (this.state.movieOpened > -1) {
 
         const film = this.state.entries[this.state.movieOpened]
-        return <MovieDetails name={film.title} type={film.programType} image={film.images["Poster Art"].url} desc={film.description} date={film.releaseYear} />
+        return <MovieDetails name={film.title} type={film.programType} 
+        image={film.images["Poster Art"].url} desc={film.description} date={film.releaseYear} 
+        back={this.UnSetMovieDetails} />
       }
 
       if (this.state.error) {
