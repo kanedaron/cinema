@@ -83,28 +83,47 @@ class Cinema extends Component {
 
     );
   }
+
+ SetMovieDetails = (index) => {
+        this.setState({movieOpened:index})
+  }
+
+ UnSetMovieDetails = () => {
+  this.setState({movieOpened:-1})
+  }
     
     render () {
+      if (this.state.movieOpened > -1) {
+
+        const film = this.state.entries[this.state.movieOpened]
+        return <MovieDetails name={film.title} type={film.programType} image={film.images["Poster Art"].url} desc={film.description} date={film.releaseYear} />
+      }
+
       if (this.state.error) {
         return <div>Erreur : {this.state.error.message}</div>;
       } else if (this.state.isLoaded===false) {
         return <div>Chargement…</div>;
       } else {
         return (
-                <div className="cinema">testcinema
+                <div className="cinema">
                     {/* Top bar */}
                     <div className="topbar">
-                        <button>Decade</button>
-                        <button>series</button>
-                        <button>movies</button>
-                        <button>Sort by name</button>
-                        <button>Sort by year</button>
-                        <button>Sort by type</button>
-                        <input></input>
+        {this.state.currentFilter.filteryear==="2010" ? <button className="activebutton">2010 onwards</button> : <button >2010 onwards</button> }
+        {this.state.currentFilter.filteryear==="2000" ? <button className="activebutton">2000-2010</button> : <button >2000-2010</button> }
+        {this.state.currentFilter.filteryear==="1990" ? <button className="activebutton">1990-2000</button> : <button >1990-2000</button> }
+
+        {this.state.currentFilter.filtertype==="series" ? <button className="activebutton">Only Series</button> : <button >Only Series</button> }
+        {this.state.currentFilter.filtertype==="movie" ? <button className="activebutton">Only Movies</button> : <button >Only Movies</button> }
+
+                        {this.state.currentFilter.sortname ? <button className="activebutton">Sort by name</button> : <button >Sort by name</button> }
+                        {this.state.currentFilter.sortyear ? <button className="activebutton">Sort by year</button> : <button >Sort by year</button> }
+                        {this.state.currentFilter.sorttype ? <button className="activebutton">Sort by type</button> : <button >Sort by type</button> }
+                        <input placeholder="Search for a name......"></input>
                     </div>
                     {/* movie list */}
                     <ul className="container">
-                      {this.state.entries.map((movie,index) => <Card key={index} name={movie.title} image={movie.images["Poster Art"].url} />)
+                      {this.state.entries.map((movie,index) => <Card key={index} name={movie.title} 
+                      image={movie.images["Poster Art"].url} index={index} click={this.SetMovieDetails} />)
                       
                       }
                     </ul>
