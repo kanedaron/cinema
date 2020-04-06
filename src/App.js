@@ -35,12 +35,13 @@ const MovieDetails = (props) => {
       <div className="moviedetails">
         <img src={props.image} alt="poster of the movie"></img>
         <div className="mdtitle">{props.name}</div>
-        <div className="mddate">{props.date}</div>
-        <div className="mdtype">{props.type}</div>
+        <div className="mddate">{props.date}<span>{props.type}</span></div>
+        {/* <div className="mdtype">{props.type}</div> */}
         <div className="mddesc">{props.desc}</div>
         <div className="back" onClick={() => props.back()}>
           Go Back
         </div>
+        <div className="mdspace"></div>
         <span className="pleinpot">a</span>
       </div>
     </div>
