@@ -41,6 +41,7 @@ const MovieDetails = (props) => {
         <div className="back" onClick={() => props.back()}>
           Go Back
         </div>
+        <span className="pleinpot">a</span>
       </div>
     </div>
   );
@@ -100,7 +101,6 @@ class Cinema extends Component {
   // MovieDetails toggles
   SetMovieDetails = (index) => {
     // document.getElementById("forward").classList.add("forwardsanimation")
-
       this.setState({ movieOpened: index });
 
   };
