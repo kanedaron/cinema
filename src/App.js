@@ -16,7 +16,7 @@ const Card = (props) => {
       onClick={() => props.click(props.index)}
     >
       <div className="canvas">
-        <span>{props.name}</span>
+        <span className={`${props.opened ? "forwardsanimation" : ""}`}>{props.name}</span>
       </div>
     </li>
   );
@@ -32,13 +32,13 @@ Card.propTypes = {
 const MovieDetails = (props) => {
   return (
     <div className="exmoviedetails">
-      <div class="moviedetails">
+      <div className="moviedetails">
         <img src={props.image} alt="poster of the movie"></img>
-        <div class="mdtitle">{props.name}</div>
-        <div class="mddate">{props.date}</div>
-        <div class="mdtype">{props.type}</div>
-        <div class="mddesc">{props.desc}</div>
-        <div class="back" onClick={() => props.back()}>
+        <div className="mdtitle">{props.name}</div>
+        <div className="mddate">{props.date}</div>
+        <div className="mdtype">{props.type}</div>
+        <div className="mddesc">{props.desc}</div>
+        <div className="back" onClick={() => props.back()}>
           Go Back
         </div>
       </div>
@@ -51,7 +51,7 @@ MovieDetails.propTypes = {
   // are all optional.
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  date: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
 };
@@ -99,20 +99,24 @@ class Cinema extends Component {
 
   // MovieDetails toggles
   SetMovieDetails = (index) => {
-    setTimeout(() => {
+    // document.getElementById("forward").classList.add("forwardsanimation")
+
       this.setState({ movieOpened: index });
-    }, 2000);
+
   };
 
   UnSetMovieDetails = () => {
-    this.setState({ movieOpened: -1 });
+    document.getElementsByClassName("exmoviedetails")[0].classList.add("backwardsanimation")
+    setTimeout(() => {
+      this.setState({ movieOpened: -1 });
+    }, 1000);
   };
 
   //Search Engine Interface
 
   search = (event) => {
-    this.setState({searchInput: event.target.value})
-  }
+    this.setState({ searchInput: event.target.value });
+  };
 
   // Filter and Sort toggles
   resettoggles = () => {
@@ -124,8 +128,8 @@ class Cinema extends Component {
         filteryear: "",
         filtertype: "",
       },
-    })
-  }
+    });
+  };
 
   sortyear = () => {
     this.setState({
@@ -224,19 +228,18 @@ class Cinema extends Component {
       // filter and sort the entries array
 
       //Search Engine
-//       const regex = /^destru/;
-// const result = words.filter(word => !word.search(regex));
-function regexEscape(str) {
-  return str.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
-}
+      //       const regex = /^destru/;
+      // const result = words.filter(word => !word.search(regex));
+      function regexEscape(str) {
+        return str.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
+      }
 
-if (this.state.searchInput !== "") {
-  const input = regexEscape(this.state.searchInput)
-  const regex2 = new RegExp (`^${input}`,"i")
-  tablerendue = tablerendue.filter(word => !word.title.search(regex2));
-}
-//End of Search Engine
-
+      if (this.state.searchInput !== "") {
+        const input = regexEscape(this.state.searchInput);
+        const regex2 = new RegExp(`^${input}`, "i");
+        tablerendue = tablerendue.filter((word) => !word.title.search(regex2));
+      }
+      //End of Search Engine
 
       if (this.state.currentFilter.filteryear === "2010")
         tablerendue = tablerendue.filter((film) => film.releaseYear > 2009);
@@ -287,51 +290,116 @@ if (this.state.searchInput !== "") {
             {this.state.currentFilter.filteryear === "2010" ? (
               <button className="f2010 activebutton">2010 onwards</button>
             ) : (
-              <button onClick={() => {this.filter2010()}} className="f2010">2010 onwards</button>
+              <button
+                onClick={() => {
+                  this.filter2010();
+                }}
+                className="f2010"
+              >
+                2010 onwards
+              </button>
             )}
             {this.state.currentFilter.filteryear === "2000" ? (
               <button className="f2000 activebutton">2000-2010</button>
             ) : (
-              <button onClick={() => {this.filter2000()}} className="f2000">2000-2010</button>
+              <button
+                onClick={() => {
+                  this.filter2000();
+                }}
+                className="f2000"
+              >
+                2000-2010
+              </button>
             )}
             {this.state.currentFilter.filteryear === "1990" ? (
               <button className="f1990 activebutton">1990-2000</button>
             ) : (
-              <button onClick={() => {this.filter1990()}} className="f1990">1990-2000</button>
+              <button
+                onClick={() => {
+                  this.filter1990();
+                }}
+                className="f1990"
+              >
+                1990-2000
+              </button>
             )}
 
             <p className="type">Type</p>
             {this.state.currentFilter.filtertype === "series" ? (
               <button className="series activebutton">Series</button>
             ) : (
-              <button onClick={() => {this.filterseries()}} className="series">Series</button>
+              <button
+                onClick={() => {
+                  this.filterseries();
+                }}
+                className="series"
+              >
+                Series
+              </button>
             )}
             {this.state.currentFilter.filtertype === "movie" ? (
               <button className="movie activebutton">Movie</button>
             ) : (
-              <button onClick={() => {this.filtermovie()}} className="movie">Movie</button>
+              <button
+                onClick={() => {
+                  this.filtermovie();
+                }}
+                className="movie"
+              >
+                Movie
+              </button>
             )}
 
             <p className="sort">Sort</p>
             {this.state.currentFilter.sortname ? (
               <button className="sname activebutton">Name</button>
             ) : (
-              <button onClick={() => {this.sortname()}} className="sname">Name</button>
+              <button
+                onClick={() => {
+                  this.sortname();
+                }}
+                className="sname"
+              >
+                Name
+              </button>
             )}
             {this.state.currentFilter.sortyear ? (
               <button className="syear activebutton">Year</button>
             ) : (
-              <button onClick={() => {this.sortyear()}} className="syear">Year</button>
+              <button
+                onClick={() => {
+                  this.sortyear();
+                }}
+                className="syear"
+              >
+                Year
+              </button>
             )}
             {this.state.currentFilter.sorttype ? (
               <button className="stype activebutton">Type</button>
             ) : (
-              <button onClick={() => {this.sorttype()}} className="stype">Type</button>
+              <button
+                onClick={() => {
+                  this.sorttype();
+                }}
+                className="stype"
+              >
+                Type
+              </button>
             )}
           </div>
           <div className="topbar right">
-            <button onClick={() => {this.resettoggles()}}>Reset</button>
-            <input onChange={this.search} placeholder="Search for a name......"></input>
+            <button
+              onClick={() => {
+                this.resettoggles();
+              }}
+            >
+              Reset
+            </button>
+            <input
+              onChange={this.search}
+              placeholder="Search for a name......"
+            ></input>
           </div>
           {/* MovieDetails */}
           {this.state.movieOpened > -1 && (
@@ -353,6 +421,7 @@ if (this.state.searchInput !== "") {
                 image={movie.images["Poster Art"].url}
                 index={movie.index}
                 click={this.SetMovieDetails}
+                opened={this.state.movieOpened===movie.index}
               />
             ))}
           </ul>
