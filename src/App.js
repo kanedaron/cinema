@@ -123,7 +123,7 @@ class Cinema extends Component {
         sorttype: false,
         filteryear: "",
         filtertype: "",
-      }
+      },
     })
   }
 
@@ -156,6 +156,51 @@ class Cinema extends Component {
         sortyear: false,
         sortname: false,
         sorttype: true,
+      },
+    });
+  };
+
+  filtermovie = () => {
+    this.setState({
+      currentFilter: {
+        ...this.state.currentFilter,
+        filtertype: "movie",
+      },
+    });
+  };
+
+  filterseries = () => {
+    this.setState({
+      currentFilter: {
+        ...this.state.currentFilter,
+        filtertype: "series",
+      },
+    });
+  };
+
+  filter1990 = () => {
+    this.setState({
+      currentFilter: {
+        ...this.state.currentFilter,
+        filteryear: "1990",
+      },
+    });
+  };
+
+  filter2000 = () => {
+    this.setState({
+      currentFilter: {
+        ...this.state.currentFilter,
+        filteryear: "2000",
+      },
+    });
+  };
+
+  filter2010 = () => {
+    this.setState({
+      currentFilter: {
+        ...this.state.currentFilter,
+        filteryear: "2010",
       },
     });
   };
@@ -242,29 +287,29 @@ if (this.state.searchInput !== "") {
             {this.state.currentFilter.filteryear === "2010" ? (
               <button className="f2010 activebutton">2010 onwards</button>
             ) : (
-              <button className="f2010">2010 onwards</button>
+              <button onClick={() => {this.filter2010()}} className="f2010">2010 onwards</button>
             )}
             {this.state.currentFilter.filteryear === "2000" ? (
               <button className="f2000 activebutton">2000-2010</button>
             ) : (
-              <button className="f2000">2000-2010</button>
+              <button onClick={() => {this.filter2000()}} className="f2000">2000-2010</button>
             )}
             {this.state.currentFilter.filteryear === "1990" ? (
               <button className="f1990 activebutton">1990-2000</button>
             ) : (
-              <button className="f1990">1990-2000</button>
+              <button onClick={() => {this.filter1990()}} className="f1990">1990-2000</button>
             )}
 
             <p className="type">Type</p>
             {this.state.currentFilter.filtertype === "series" ? (
               <button className="series activebutton">Series</button>
             ) : (
-              <button className="series">Series</button>
+              <button onClick={() => {this.filterseries()}} className="series">Series</button>
             )}
             {this.state.currentFilter.filtertype === "movie" ? (
               <button className="movie activebutton">Movie</button>
             ) : (
-              <button className="movie">Movie</button>
+              <button onClick={() => {this.filtermovie()}} className="movie">Movie</button>
             )}
 
             <p className="sort">Sort</p>
@@ -285,6 +330,7 @@ if (this.state.searchInput !== "") {
             )}
           </div>
           <div className="topbar right">
+            <button onClick={() => {this.resettoggles()}}>Reset</button>
             <input onChange={this.search} placeholder="Search for a name......"></input>
           </div>
           {/* MovieDetails */}
