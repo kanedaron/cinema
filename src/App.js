@@ -388,9 +388,8 @@ class Cinema extends Component {
                 Type
               </button>
             )}
-          </div>
-          <div className="topbar right">
-            <button
+         
+            <button className="reset"
               onClick={() => {
                 this.resettoggles();
               }}
@@ -401,7 +400,7 @@ class Cinema extends Component {
               onChange={this.search}
               placeholder="Search for a name......"
             ></input>
-          </div>
+             </div>
           {/* MovieDetails */}
           {this.state.movieOpened > -1 && (
             <MovieDetails

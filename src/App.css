@@ -149,7 +149,7 @@ width:250px; */
 ul {
     z-index: -20;
     margin: 50px;
-    margin-top: 120px;
+    margin-top: 200px;
     display: inline-grid;
     grid-template-columns: 260px 260px 260px 260px 260px 260px;
     grid-template-rows: 360px 360px 360px;
@@ -160,25 +160,19 @@ ul {
 .topbar {
     display: grid;
     grid-template-areas: 
-    "year f2010 type . movie sort . sname"
-    "year f2000 type . series sort . stype"
-    "year f1990 . . . sort . syear";
-    grid-template-rows: 35px 35px 35px;
-    grid-template-columns: auto auto auto auto auto;
+    "year f2010 . movie . . sname . ."
+    "year f2000 . series . . stype input input"
+    ". f1990 . . . . syear . reset";
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto auto 45px auto 45px;
     z-index: 20;
-    padding: 40px;
+    padding: 30px;
     position: fixed;
     top: 0;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    border-radius: 10px;
-}
-
-.right {
-    height: 123px;
-    display: block;
-    margin-left: 500px;
+    /* border-radius: 10px; */
 }
 
 .topbar p {
@@ -188,16 +182,22 @@ ul {
 
 .year {
     grid-area: year;
+    /* margin-bottom: 30px; */
 }
 
 .type {
+    position: absolute;
+    left: 230px;
+    top:30px;
     grid-area: type;
-    justify-self: start;
-    align-self: start;
 }
 
 .sort {
+    left: 370px;
+    top:30px;
+    position: absolute;
     grid-area: sort;
+    /* margin-bottom: 130px; */
 }
 
 .f2010 {
@@ -233,13 +233,40 @@ ul {
 }
 
 button {
-    font-size: 15px;
-    /* padding: 20px; */
+    /* margin: 10px; */
+    font-size: 17px;
+    padding: 13px;
+    padding-left: 17px;
+    padding-right: 17px;
     border-radius: 5px;
+
+    border: none;
+    background-color: white;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    /* border-bottom: 2px solid black;
+    border-right: 2px solid black; */
+    border-radius: 2px;
+    transition: all .5s;
+}
+
+button:hover {
+    background-color: tomato;
+    color: white;
+}
+
+button:active {
+    background-color: red;
+    color:red;
+}
+
+.reset {
+    grid-area: reset;
 }
 
 input {
-    margin-top: 10%;
+    grid-area: input;
+    /* margin-top: 10%; */
     margin-left: 60px;
     font-size: 25px;
 }
