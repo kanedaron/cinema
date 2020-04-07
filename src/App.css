@@ -436,3 +436,184 @@ color: rgba(0, 0, 0, 0);
             z-index: 20;
     }
   }
+
+
+
+
+
+  @media (max-width: 900px) {
+
+    ul {
+        display: grid;
+    grid-template-columns: auto;
+        justify-content: center;
+        margin: 0px;
+        margin-top: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        padding: 0px !important;
+    }
+
+    li {
+        height: unset;
+        box-sizing: border-box;
+        margin: auto;
+        margin-top: 40px;
+    }
+
+        .topbar {
+            display: block;
+            position: absolute;
+            /* align-content: flex-start; */
+            grid-template-columns: auto !important;
+            
+            grid-template-areas:
+            "year"
+            "f2010"
+            "f2000"
+            "f1990"
+            "type"
+            "movie"
+            "series"
+            "sort"
+            "stype"
+            "sname"
+            "sdate"
+            "reset"
+            "input"
+            ;
+            grid-column: auto;
+            width: 100%;
+        }
+
+    .topbar p {
+        transform: unset;
+    }
+
+    .year {
+        grid-area: year;
+        /* margin-bottom: 30px; */
+    }
+    
+    .type {
+        align-items: flex-start;
+        position: unset;
+        left: unset;
+        top:unset;
+        grid-area: type;
+    }
+    
+    .sort {
+        align-items: flex-start;
+        left: unset;
+        top:unset;
+        position: unset;
+        grid-area: sort;
+        /* margin-bottom: 130px; */
+    }
+    
+    .f2010 {
+        grid-area: f2010;
+    }
+    
+    .f2000 {
+        grid-area: f2000;
+    }
+    
+    .f1990 {
+        grid-area: f1990;
+    }
+    
+    .movie {
+        grid-area: movie;
+    }
+    
+    .series {
+        grid-area: series;
+    }
+    
+    .sname {
+        grid-area: sname;
+    }
+    
+    .stype {
+        grid-area: stype;
+    }
+    
+    .syear {
+        grid-area: syear;
+    }
+    
+    button {
+        /* margin: 10px; */
+        font-size: 17px;
+        padding: 13px;
+        padding-left: 17px;
+        padding-right: 17px;
+        border-radius: 5px;
+    
+        border: none;
+        background-color: white;
+        font-family: 'Montserrat';
+        font-weight: 600;
+        /* border-bottom: 2px solid black;
+        border-right: 2px solid black; */
+        border-radius: 2px;
+        transition: all .5s;
+    }
+    
+    .reset {
+        grid-area: reset;
+    }
+    
+    input {
+        grid-area: input;
+        margin-top: 10%;
+        margin-left: 0px;
+        font-size: 25px;
+        width: 75%;
+    }
+
+    .exmoviedetails {
+    
+        position: absolute;
+        margin: auto;
+        background-color: white;
+    }
+
+    .moviedetails {
+        width: 100%;
+        display: block;
+        position: absolute;
+        box-shadow: unset;
+    }
+
+    .moviedetails div {
+        background-color: white;
+    }
+
+    .moviedetails img{
+        display: block;
+        margin: auto;
+        width: 85%;
+    }
+
+    .back {
+        background-color: tomato !important;
+        padding: 15px;
+        margin-top: -40px;
+    }
+
+    .mddate {
+            padding: 80px;
+            padding-top: 0px;
+            margin-top: -40px;
+    }
+
+    .mddate span {
+        font-size: 22px;
+        margin-left: 50px;
+    }
+
+  }
