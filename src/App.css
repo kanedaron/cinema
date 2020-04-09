@@ -1,86 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 /* title in montserrat medium
 year in montserrat bold */
 /* or year in playfair display? */
 /* body in open sans regular/emibold */
 
 a:link {
-    text-decoration: none;
-  }
-  
+  text-decoration: none;
+}
+
 a:visited {
-    text-decoration: none;
-  }
-  
+  text-decoration: none;
+}
+
 a:hover {
-    text-decoration: none;
-  }
-  
+  text-decoration: none;
+}
+
 a:active {
-    text-decoration: none;
-  }
+  text-decoration: none;
+}
 
 img {
-    height: 300px;
+  height: 300px;
 }
 
 .canvas span {
-    font-size: 20px;
-    display: block;
-    text-align: center;
-    padding-top: 200px;
-    padding-left: 10px;
-    padding-right: 10px;
-    transition: transform 1s, background-color 1s;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  padding-top: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: transform 1s, background-color 1s;
 }
 
 .canvas {
-    opacity:0;
-    box-sizing: content-box;
-    /* position: absolute; */
-    height:300px;
-    width: 200px;
-    left: 30px;
-    /* background-color: black; */
-    font-size: 30px;
-    font-family: "Montserrat";
-    font-weight: 500;
-    /* line height to manage this specific font to delete if font not used */
-    /* line-height: 40px; */
-    color: white;
-    transition: all 1s ease;
-    -webkit-transition: all 1s ease;
+  opacity: 0;
+  box-sizing: content-box;
+  /* position: absolute; */
+  height: 300px;
+  width: 200px;
+  left: 30px;
+  /* background-color: black; */
+  font-size: 30px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  /* line height to manage this specific font to delete if font not used */
+  /* line-height: 40px; */
+  color: white;
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
 
-/* The following "casselescouilles" is fix to the problem of having chrome transitioning to my default opacity:0 from their default opacity:1
+  /* The following "casselescouilles" is fix to the problem of having chrome transitioning to my default opacity:0 from their default opacity:1
 which i can't get to change!!!!!! (delete this section and reload to see what i mean)*/
 
-    animation-duration: .25s;
-    animation-fill-mode: backwards;
-    animation-name: casselescouilles;
+  animation-duration: 0.25s;
+  animation-fill-mode: backwards;
+  animation-name: casselescouilles;
 }
 
 @keyframes casselescouilles {
-    from {
-        opacity: 0;
-    }
-
-    to {
+  from {
     opacity: 0;
-    }
   }
+
+  to {
+    opacity: 0;
+  }
+}
 
 /* End of "casselescouilles" fix */
 
 .canvas:hover {
-    opacity: 1;
-    /* height:375px;
+  opacity: 1;
+  /* height:375px;
     width:250px; */
-    /* utiliser un dégradé de 0 a .575 */
-    /* background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.575)); */
-background-color:rgba(0, 0, 0, 0.383);
+  /* utiliser un dégradé de 0 a .575 */
+  /* background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.575)); */
+  background-color: rgba(0, 0, 0, 0.383);
 }
 
 /* .canvas:active span {
@@ -89,151 +89,452 @@ background-color:rgba(0, 0, 0, 0.383);
     background-color:rgb(255, 255, 255);
 } */
 
-
 /* add following animation to just .canvas span */
 .forwardsanimation {
-    animation-duration: 2s !important;
-    animation-fill-mode: forwards !important;
-    animation-name: moviedetails !important;
+  animation-duration: 2s !important;
+  animation-fill-mode: forwards !important;
+  animation-name: moviedetails !important;
 }
 
 @keyframes moviedetails {
-    0% {
-        
-    }
-
-    50% {
-    color: rgba(243, 243, 243, 0);
-    transform: scale(15);
-    background-color:rgb(255, 255, 255);
-    opacity: 1;
-    }
-
-    100% {
-            opacity: 0;
-            z-index: -20;
-    }
+  0% {
   }
 
-  /* add following animation to both moviedetails AND exmoviedetails */
+  50% {
+    color: rgba(243, 243, 243, 0);
+    transform: scale(15);
+    background-color: rgb(255, 255, 255);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    z-index: -20;
+  }
+}
+
+/* add following animation to both moviedetails AND exmoviedetails */
 .backwardsanimation {
-    animation-duration: .75s !important;
-    animation-fill-mode: forwards !important;
-    animation-name: backward !important;
+  animation-duration: 0.75s !important;
+  animation-fill-mode: forwards !important;
+  animation-name: backward !important;
 }
 
 @keyframes backward {
-    from {
-        opacity:1;
-    }
-
-    to {
-        opacity:0;
-    }
+  from {
+    opacity: 1;
   }
 
+  to {
+    opacity: 0;
+  }
+}
+
 li {
-    /* background-image: url("film.jpg"); */
-    background-position: center;
-    background-size: cover;
-    transition: all 1s;
-    margin: 30px;
+  /* background-image: url("film.jpg"); */
+  background-position: center;
+  background-size: cover;
+  transition: all 1s;
+  margin: 30px;
 }
 
 li:hover {
-
-transform: rotate(15deg) scale(1.5);
-/* height:375px;
+  transform: rotate(15deg) scale(1.5);
+  /* height:375px;
 width:250px; */
 }
 
 ul {
-    z-index: -20;
-    margin: 50px;
-    margin-top: 200px;
-    display: inline-grid;
-    grid-template-columns: 260px 260px 260px 260px 260px 260px;
-    grid-template-rows: 360px 360px 360px;
-    list-style-type:none;
-    transition:all 1s;
+  z-index: -20;
+  margin: 50px;
+  margin-top: 200px;
+  display: inline-grid;
+  grid-template-columns: 260px 260px 260px 260px 260px 260px;
+  grid-template-rows: 360px 360px 360px;
+  list-style-type: none;
+  transition: all 1s;
 }
 
 .topbar {
-    display: grid;
-    grid-template-areas: 
+  display: grid;
+  grid-template-areas:
     "year f2010 . movie . . sname . ."
     "year f2000 . series . . stype input input"
     ". f1990 . . . . syear . reset";
-    grid-template-rows: auto auto auto;
-    grid-template-columns: auto auto 45px auto 45px;
-    z-index: 20;
-    padding: 30px;
-    position: fixed;
-    top: 0;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    border-radius: 10px;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto 45px auto 45px;
+  z-index: 20;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .topbar p {
-    font-size: 30px;
-    transform: rotate(-90deg);
+  font-size: 30px;
+  transform: rotate(-90deg);
 }
 
 .year {
-    grid-area: year;
-    /* margin-bottom: 30px; */
+  grid-area: year;
+  /* margin-bottom: 30px; */
 }
 
 .type {
-    position: absolute;
-    left: 230px;
-    top:30px;
-    grid-area: type;
+  position: absolute;
+  left: 230px;
+  top: 30px;
+  grid-area: type;
 }
 
 .sort {
-    left: 370px;
-    top:30px;
-    position: absolute;
-    grid-area: sort;
-    /* margin-bottom: 130px; */
+  left: 370px;
+  top: 30px;
+  position: absolute;
+  grid-area: sort;
+  /* margin-bottom: 130px; */
 }
 
 .f2010 {
-    grid-area: f2010;
+  grid-area: f2010;
 }
 
 .f2000 {
-    grid-area: f2000;
+  grid-area: f2000;
 }
 
 .f1990 {
-    grid-area: f1990;
+  grid-area: f1990;
 }
 
 .movie {
-    grid-area: movie;
+  grid-area: movie;
 }
 
 .series {
-    grid-area: series;
+  grid-area: series;
 }
 
 .sname {
-    grid-area: sname;
+  grid-area: sname;
 }
 
 .stype {
-    grid-area: stype;
+  grid-area: stype;
 }
 
 .syear {
-    grid-area: syear;
+  grid-area: syear;
 }
 
 button {
+  /* margin: 10px; */
+  font-size: 17px;
+  padding: 13px;
+  padding-left: 17px;
+  padding-right: 17px;
+  border-radius: 5px;
+
+  border: none;
+  background-color: white;
+  font-family: "Montserrat";
+  font-weight: 600;
+  /* border-bottom: 2px solid black;
+    border-right: 2px solid black; */
+  border-radius: 2px;
+  transition: all 0.5s;
+}
+
+button:hover {
+  background-color: tomato;
+  color: white;
+}
+
+button:active {
+  background-color: red;
+  color: red;
+}
+
+.reset {
+  grid-area: reset;
+}
+
+input {
+  grid-area: input;
+  /* margin-top: 10%; */
+  margin-left: 60px;
+  font-size: 25px;
+}
+
+.activebutton {
+  background-color: rgb(85, 147, 206);
+  color: white;
+}
+
+.moviedetails {
+  margin: auto;
+  margin-top: 5%;
+  height: 75%;
+  width: 75%;
+  background-color: white;
+  border-radius: 25px;
+  box-shadow: 10px 49px 63px 0px rgba(0, 0, 0, 0.09);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.moviedetails img {
+  grid-area: 1 / 1 / 7 / 4;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.mddesc {
+  padding: 80px;
+  grid-area: 5 / 4 / 7 / 7;
+  margin-top: -120px;
+  font-family: "Open Sans";
+}
+
+.mdtitle {
+  margin-top: 50px;
+  padding: 80px;
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 2.5em;
+  grid-area: 2 / 4 / 3 / 6;
+}
+
+.mddate {
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 25px;
+  padding: 80px;
+  padding-left: 170px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: -10px;
+  grid-area: 3 / 4 / 4 / 6;
+}
+
+.mddate span {
+  font-size: 22px;
+  margin-left: 220px;
+}
+
+.mdtype {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 25px;
+  padding: 60px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  grid-area: 3 / 5 / 6 / 7;
+}
+
+.mdspace {
+  background-color: rgb(136, 136, 136);
+  height: 2px;
+  margin: auto;
+  margin-top: -10px;
+  width: 70%;
+  grid-area: 4/4/5/7;
+}
+
+.back {
+  right: 190px;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+  background-color: tomato;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 2px;
+  transition: all 1s;
+  transform: rotate(-15deg);
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 25px 5px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 10px 10px 25px 5px rgba(0, 0, 0, 0.13);
+  box-shadow: 10px 10px 25px 5px rgba(0, 0, 0, 0.13);
+}
+
+.back:hover {
+  background-color: rgb(0, 132, 255);
+}
+
+.back:active {
+  background-color: tomato;
+}
+
+.exmoviedetails {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  animation: casselescouilles2 1s backwards, timeout 0.25s 1s forwards;
+}
+
+@keyframes casselescouilles2 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes timeout {
+  from {
+    opacity: 1;
+    z-index: 20;
+  }
+
+  to {
+    opacity: 1;
+    z-index: 20;
+  }
+}
+
+.pleinpot {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(0, 0, 0, 0);
+  animation: pleinpot 1s 1s forwards;
+  background-color: white;
+}
+
+@keyframes pleinpot {
+  from {
+    transform: scale(15);
+    opacity: 1;
+    z-index: 20;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 0;
+    z-index: 20;
+  }
+}
+
+@media (max-width: 900px) {
+  ul {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 650px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0px !important;
+  }
+
+  li {
+    height: unset;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  .topbar {
+    display: block;
+    position: absolute;
+    /* align-content: flex-start; */
+    grid-template-columns: auto !important;
+
+    grid-template-areas:
+      "year"
+      "f2010"
+      "f2000"
+      "f1990"
+      "type"
+      "movie"
+      "series"
+      "sort"
+      "stype"
+      "sname"
+      "sdate"
+      "reset"
+      "input";
+    grid-column: auto;
+  }
+
+  .topbar p {
+    transform: unset;
+  }
+
+  .year {
+    grid-area: year;
+    /* margin-bottom: 30px; */
+  }
+
+  .type {
+    align-items: flex-start;
+    position: unset;
+    left: unset;
+    top: unset;
+    grid-area: type;
+  }
+
+  .sort {
+    align-items: flex-start;
+    left: unset;
+    top: unset;
+    position: unset;
+    grid-area: sort;
+    /* margin-bottom: 130px; */
+  }
+
+  .f2010 {
+    grid-area: f2010;
+  }
+
+  .f2000 {
+    grid-area: f2000;
+  }
+
+  .f1990 {
+    grid-area: f1990;
+  }
+
+  .movie {
+    grid-area: movie;
+  }
+
+  .series {
+    grid-area: series;
+  }
+
+  .sname {
+    grid-area: sname;
+  }
+
+  .stype {
+    grid-area: stype;
+  }
+
+  .syear {
+    grid-area: syear;
+  }
+
+  button {
     /* margin: 10px; */
     font-size: 17px;
     padding: 13px;
@@ -243,389 +544,69 @@ button {
 
     border: none;
     background-color: white;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-weight: 600;
     /* border-bottom: 2px solid black;
-    border-right: 2px solid black; */
-    border-radius: 2px;
-    transition: all .5s;
-}
-
-button:hover {
-    background-color: tomato;
-    color: white;
-}
-
-button:active {
-    background-color: red;
-    color:red;
-}
-
-.reset {
-    grid-area: reset;
-}
-
-input {
-    grid-area: input;
-    /* margin-top: 10%; */
-    margin-left: 60px;
-    font-size: 25px;
-}
-
-.activebutton {
-    background-color: rgb(85, 147, 206);
-    color: white;
-}
-
-.moviedetails {
-    margin: auto;
-    margin-top: 5%;
-    height: 75%;
-    width: 75%;
-    background-color: white;
-    border-radius: 25px;
-    box-shadow: 10px 49px 63px 0px rgba(0,0,0,0.09);
-    display: grid;
-grid-template-columns: repeat(6, 1fr);
-grid-template-rows: repeat(6, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
-}
-
-.moviedetails img {
-    grid-area: 1 / 1 / 7 / 4;
-     object-fit: cover;
-     height: 100%;
-     width: 100%;
-}
-
-.mddesc {
-    padding: 80px;
-    grid-area: 5 / 4 / 7 / 7; 
-    margin-top: -120px;
-    font-family: 'Open Sans';
-}
-
-.mdtitle {
-    margin-top: 50px;
-    padding: 80px;
-    font-family: 'Montserrat';
-    font-weight: 300;
-    font-size: 2.5em;
-    grid-area: 2 / 4 / 3 /  6; 
-}
-
-.mddate {
-    font-family: 'Montserrat';
-    font-weight: 300;
-    font-size: 25px;
-    padding: 80px;
-    padding-left:170px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    margin-top: -10px;
-    grid-area: 3 / 4 / 4 / 6;
-}
-
-.mddate span {
-    font-size: 22px;
-    margin-left: 220px;
-}
-
-.mdtype {
-    font-family: Montserrat;
-    font-weight: 400;
-    font-size: 25px;
-    padding: 60px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    grid-area: 3 / 5 / 6 / 7;
-}
-
-.mdspace {
-    background-color: rgb(136, 136, 136);
-    height: 2px;
-    margin: auto;
-    margin-top: -10px;
-    width: 70%;
-    grid-area: 4/4/5/7;
-}
-
-.back {
-    right:190px;
-    position: absolute;
-    color: rgb(255, 255, 255);
-    padding: 20px;
-    padding-left: 80px;
-    padding-right: 80px;
-    background-color: tomato;
-    font-family: 'Montserrat';
-    font-weight: 600;
-    font-size: 20px;
-    border-radius: 2px;
-    transition: all 1s;
-    transform: rotate(-15deg);
-    border-radius: 10px;
-    -webkit-box-shadow: 10px 10px 25px 5px rgba(0,0,0,0.13);
-    -moz-box-shadow: 10px 10px 25px 5px rgba(0,0,0,0.13);
-    box-shadow: 10px 10px 25px 5px rgba(0,0,0,0.13);
-}
-
-.back:hover {
-    background-color: rgb(0, 132, 255) ;
-}
-
-.back:active {
-    background-color: tomato;
-}
-
-.exmoviedetails {
-    
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-
-
-    animation:casselescouilles2 1s backwards,timeout .25s 1s forwards;
-}
-
-@keyframes casselescouilles2 {
-    from {
-        opacity: 0;
-    }
-
-    to {
-    opacity: 0;
-    }
-  }
-
-
-@keyframes timeout {
-    from {
-        opacity: 1;
-        z-index: 20;
-    }
-
-
-    to {
-            opacity: 1;
-            z-index: 20;
-    }
-  }
-
-  .pleinpot {
-      display: block;
-position: absolute;
-top: 50%;
-left:50%;
-color: rgba(0, 0, 0, 0);
-    animation:pleinpot 1s 1s forwards;
-    background-color: white;
-  }
-
-  @keyframes pleinpot {
-    from {
-        transform: scale(15);
-        opacity: 1;
-        z-index: 20;
-    }
-
-
-    to {
-        transform: scale(1);
-            opacity: 0;
-            z-index: 20;
-    }
-  }
-
-
-
-
-
-  @media (max-width: 900px) {
-
-    ul {
-        display: grid;
-    grid-template-columns: auto;
-        justify-content: center;
-        margin: 0px;
-        margin-top: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        
-        padding: 0px !important;
-    }
-
-    li {
-        height: unset;
-        box-sizing: border-box;
-        margin: auto;
-        margin-top: 40px;
-    }
-
-        .topbar {
-            display: block;
-            position: absolute;
-            /* align-content: flex-start; */
-            grid-template-columns: auto !important;
-            
-            grid-template-areas:
-            "year"
-            "f2010"
-            "f2000"
-            "f1990"
-            "type"
-            "movie"
-            "series"
-            "sort"
-            "stype"
-            "sname"
-            "sdate"
-            "reset"
-            "input"
-            ;
-            grid-column: auto;
-        }
-
-    .topbar p {
-        transform: unset;
-    }
-
-    .year {
-        grid-area: year;
-        /* margin-bottom: 30px; */
-    }
-    
-    .type {
-        align-items: flex-start;
-        position: unset;
-        left: unset;
-        top:unset;
-        grid-area: type;
-    }
-    
-    .sort {
-        align-items: flex-start;
-        left: unset;
-        top:unset;
-        position: unset;
-        grid-area: sort;
-        /* margin-bottom: 130px; */
-    }
-    
-    .f2010 {
-        grid-area: f2010;
-    }
-    
-    .f2000 {
-        grid-area: f2000;
-    }
-    
-    .f1990 {
-        grid-area: f1990;
-    }
-    
-    .movie {
-        grid-area: movie;
-    }
-    
-    .series {
-        grid-area: series;
-    }
-    
-    .sname {
-        grid-area: sname;
-    }
-    
-    .stype {
-        grid-area: stype;
-    }
-    
-    .syear {
-        grid-area: syear;
-    }
-    
-    button {
-        /* margin: 10px; */
-        font-size: 17px;
-        padding: 13px;
-        padding-left: 17px;
-        padding-right: 17px;
-        border-radius: 5px;
-    
-        border: none;
-        background-color: white;
-        font-family: 'Montserrat';
-        font-weight: 600;
-        /* border-bottom: 2px solid black;
         border-right: 2px solid black; */
-        border-radius: 2px;
-        transition: all .5s;
-    }
-    
-    .reset {
-        grid-area: reset;
-    }
-    
-    input {
-        grid-area: input;
-        margin-top: 10%;
-        margin-left: 0px;
-        font-size: 25px;
-        width: 75%;
-    }
-
-    .exmoviedetails {
-    
-        position: absolute;
-        margin: auto;
-        background-color: white;
-    }
-
-    .moviedetails {
-        width: 100%;
-        display: block;
-        position: absolute;
-        box-shadow: unset;
-
-    }
-
-    .moviedetails div {
-        background-color: white;
-
-    }
-
-    .moviedetails img{
-        display: block;
-        margin: auto;
-        width: 85%;
-    }
-
-    .back {
-        background-color: tomato !important;
-        padding: 15px;
-        margin-top: -40px;
-
-    }
-
-    .mddate {
-            padding: 80px;
-            padding-top: 0px;
-            margin-top: -40px;
-    }
-
-    .mddate span {
-        font-size: 22px;
-        margin-left: 50px;
-    }
-
-    .mddesc {
-        -webkit-box-shadow: 10px 81px 51px 0px rgba(0,0,0,0.15);
--moz-box-shadow: 10px 81px 51px 0px rgba(0,0,0,0.15);
-box-shadow: 10px 81px 51px 0px rgba(0,0,0,0.15);
-    }
-
+    border-radius: 2px;
+    transition: all 0.5s;
   }
+
+  .reset {
+    grid-area: reset;
+  }
+
+  input {
+    grid-area: input;
+    margin-top: 10%;
+    margin-left: 0px;
+    font-size: 25px;
+    width: 75%;
+  }
+
+  .exmoviedetails {
+    position: absolute;
+    margin: auto;
+    background-color: white;
+  }
+
+  .moviedetails {
+    width: 100%;
+    display: block;
+    position: absolute;
+    box-shadow: unset;
+  }
+
+  .moviedetails div {
+    background-color: white;
+  }
+
+  .moviedetails img {
+    display: block;
+    margin: auto;
+    width: 85%;
+  }
+
+  .back {
+    background-color: tomato !important;
+    padding: 15px;
+    margin-top: -40px;
+  }
+
+  .mddate {
+    padding: 80px;
+    padding-top: 0px;
+    margin-top: -40px;
+  }
+
+  .mddate span {
+    font-size: 22px;
+    margin-left: 50px;
+  }
+
+  .mddesc {
+    -webkit-box-shadow: 10px 81px 51px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 10px 81px 51px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 10px 81px 51px 0px rgba(0, 0, 0, 0.15);
+  }
+}
