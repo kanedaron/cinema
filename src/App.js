@@ -387,7 +387,7 @@ class Cinema extends Component {
               >
                 Type
               </button>
-            )}
+            )}<br/>
          
             <button className="reset"
               onClick={() => {
