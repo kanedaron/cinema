@@ -311,7 +311,7 @@ class Cinema extends Component {
               >
                 2000-2010
               </button>
-            )}<br/>
+            )}
             {this.state.currentFilter.filteryear === "1990" ? (
               <button className="f1990 activebutton">1990-2000</button>
             ) : (
