@@ -485,7 +485,6 @@ color: rgba(0, 0, 0, 0);
             "input"
             ;
             grid-column: auto;
-            width: 100%;
         }
 
     .topbar p {
