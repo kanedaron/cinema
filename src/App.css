@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 /* title in montserrat medium
 year in montserrat bold */
 /* or year in playfair display? */
@@ -46,8 +45,8 @@ img {
     left: 30px;
     /* background-color: black; */
     font-size: 30px;
-    font-family: "Montserrat";
-    font-weight: 500;
+    font-family: "Helvetica Neue";
+    font-weight: 900;
     /* line height to manage this specific font to delete if font not used */
     /* line-height: 40px; */
     color: white;
@@ -310,14 +309,14 @@ grid-row-gap: 0px;
     margin-top: 50px;
     padding: 80px;
     font-family: 'Montserrat';
-    font-weight: 300;
+    font-weight: 400;
     font-size: 2.5em;
     grid-area: 2 / 4 / 3 /  6; 
 }
 
 .mddate {
     font-family: 'Montserrat';
-    font-weight: 300;
+    font-weight: 400;
     font-size: 25px;
     padding: 80px;
     padding-left:170px;

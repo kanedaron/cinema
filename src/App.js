@@ -387,7 +387,7 @@ class Cinema extends Component {
               >
                 Type
               </button>
-            )}
+            )}<br/>
          
             <button className="reset"
               onClick={() => {
@@ -396,10 +396,6 @@ class Cinema extends Component {
             >
               Reset
             </button>
-            <input
-              onChange={this.search}
-              placeholder="Search for a name......"
-            ></input>
              </div>
           {/* MovieDetails */}
           {this.state.movieOpened > -1 && (
