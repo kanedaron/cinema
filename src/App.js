@@ -5,7 +5,7 @@ import "./App.css";
 // 1 a list page with all the movies filetered with the buttons(type,date) PLUS the sort options
 // Abis a movie name search bar(add searchinput in state)
 // 1ter filter through search bar name AND currentFilters
-// 2 a master component with states(list of entries, current filter, movie opened(either void or a name of a movie))
+// 2  master component with states(list of entries, current filter, movie opened(either void or a name of a movie))
 // 3 a movie poster component
 // 4 a movie details component(which activates and filled based on "movie opened" state)
 
