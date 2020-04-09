@@ -394,7 +394,7 @@ class Cinema extends Component {
                 this.resettoggles();
               }}
             >
-              Reset
+              Reset all filters
             </button>
             <input
               onChange={this.search}
