@@ -70,7 +70,7 @@ class Cinema extends Component {
 
   componentDidMount() {
     fetch(
-      "https://second-florentine-crow.glitch.me/json"
+      "https://raw.githubusercontent.com/StreamCo/react-coding-challenge/master/feed/sample.json"
     )
       .then((res) => res.json())
       .then(
